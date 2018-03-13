@@ -1,6 +1,6 @@
 ## ゼロから作るDeep Learning
 
-"ゼロから作るDeep Learning" 第5章のHaskell実装
+_ゼロから作るDeep Learning_ 第5章の実装
 
 ```sh
 $ mkdir ./assets
