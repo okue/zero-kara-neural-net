@@ -95,3 +95,16 @@ loadMnist normalize = do
   unless e initMnist
   loadPickle loadPath >>= normalizeImg normalize
 
+main :: IO ()
+main = do
+  [_, (_xs, _ys)] <- loadMnist False
+  -- Mnist の中身を表示
+  let
+    xs = toRows _xs
+    ys = toRows _ys
+    digit_print = mapM_ (putStrLn . unwords . map (show . (ceiling :: R -> Int))) . toLists . reshape 28 . cmap (\x -> if x > 0 then 1 else 0)
+  forM_ [0..100] $ \i -> do
+    let x = xs !! i
+        y = ys !! i
+    print $ y ! 0
+    digit_print x
